@@ -1,0 +1,209 @@
+{
+  "Home": {
+    "title": "Hello World!"
+  },
+  "BookUI": {
+    "tabs": {
+      "destination": "Destination",
+      "dates": "Dates",
+      "guests": "Guests"
+    },
+    "search": "Search",
+    "searching": "Searching...",
+    "addDates": "Add dates",
+    "addGuests": "Add guests",
+    "guests": {
+      "adults": "adult",
+      "adults_plural": "adults",
+      "children": "child",
+      "children_plural": "children",
+      "babies": "baby",
+      "babies_plural": "babies",
+      "pets": "pet",
+      "pets_plural": "pets"
+    },
+    "guestsPanel": {
+      "title": "Who's coming?",
+      "adults": "Adults",
+      "adultsAge": "13 years and older",
+      "children": "Children",
+      "childrenAge": "2–12 years",
+      "babies": "Babies",
+      "babiesAge": "Under 2 years",
+      "pets": "Pets",
+      "petsNote": "Service animals welcome"
+    },
+    "datesPanel": {
+      "title": "Select your dates"
+    },
+    "destinations": {
+      "capeTown": "Cape Town, South Africa",
+      "capeTownSubtitle": "Popular beach destination",
+      "paris": "Paris, Île-de-France",
+      "parisSubtitle": "Famous for landmarks like: Eiffel Tower",
+      "sandton": "Sandton, South Africa",
+      "sandtonSubtitle": "For international travel",
+      "daressalaam": "Dar es Salaam, Tanzania",
+      "daressalaamSubtitle": "A rare gem",
+      "johannesburg": "Johannesburg, South Africa",
+      "johannesburgSubtitle": "Culture, cuisine and business",
+      "cairo": "Cairo, Egypt",
+      "cairoSubtitle": "Millennia of history along the Nile"
+    }
+  },
+  "TrendingPlaces": {
+    "title": "Trending Places",
+    "subtitle": "Popular destinations for your next trip",
+    "places": {
+      "bali": {
+        "name": "Bali, Indonesia",
+        "description": "Tropical paradise with beaches and temples",
+        "properties": "2,450 properties"
+      },
+      "tokyo": {
+        "name": "Tokyo, Japan",
+        "description": "Modern metropolis meets traditional culture",
+        "properties": "3,890 properties"
+      },
+      "santorini": {
+        "name": "Santorini, Greece",
+        "description": "Cycladic island with white-washed houses",
+        "properties": "1,230 properties"
+      },
+      "dubai": {
+        "name": "Dubai, UAE",
+        "description": "Luxury and futuristic architecture",
+        "properties": "2,780 properties"
+      },
+      "maldives": {
+        "name": "Maldives",
+        "description": "Overwater villas and crystal waters",
+        "properties": "890 properties"
+      },
+      "paris": {
+        "name": "Paris, France",
+        "description": "City of lights and romantic capital",
+        "properties": "4,560 properties"
+      }
+    }
+  },
+  "BecomePartner": {
+    "title": "Become a Wanderlate Partner",
+    "subtitle": "List your property and generate income",
+    "description": "Join thousands of property owners who trust Wanderlate to manage their rentals. Simple, secure, and profitable.",
+    "cta": "List my property",
+    "features": {
+      "commission": {
+        "title": "Competitive commission",
+        "description": "Only 15% commission on each booking"
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Dedicated team available anytime"
+      },
+      "visibility": {
+        "title": "Global visibility",
+        "description": "Your property visible to millions of travelers"
+      },
+      "payment": {
+        "title": "Secure payments",
+        "description": "Receive your payments quickly and securely"
+      }
+    },
+    "stats": {
+      "partners": "15,000+",
+      "partnersLabel": "Partner owners",
+      "countries": "120+",
+      "countriesLabel": "Countries covered",
+      "revenue": "€2.5M",
+      "revenueLabel": "Average revenue generated"
+    }
+  },
+  "Footer": {
+    "tagline": "Travel differently, book simply",
+    "company": {
+      "title": "Company",
+      "about": "About",
+      "careers": "Careers",
+      "press": "Press",
+      "blog": "Blog"
+    },
+    "support": {
+      "title": "Support",
+      "help": "Help Center",
+      "safety": "Safety",
+      "terms": "Terms",
+      "privacy": "Privacy"
+    },
+    "hosting": {
+      "title": "Hosting",
+      "becomeHost": "Become a host",
+      "resources": "Resources",
+      "community": "Community",
+      "hostsProtection": "Host protection"
+    },
+    "social": {
+      "title": "Follow us"
+    },
+    "copyright": "© 2025 Wanderlate. All rights reserved.",
+    "madeWith": "Made with",
+    "by": "by Olivier RUBUZ"
+  },
+  "Calendar": {
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
+    },
+    "monthsShort": {
+      "january": "Jan",
+      "february": "Feb",
+      "march": "Mar",
+      "april": "Apr",
+      "may": "May",
+      "june": "Jun",
+      "july": "Jul",
+      "august": "Aug",
+      "september": "Sep",
+      "october": "Oct",
+      "november": "Nov",
+      "december": "Dec"
+    },
+    "weekdays": {
+      "sunday": "Sunday",
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday"
+    },
+    "weekdaysShort": {
+      "sunday": "Sun",
+      "monday": "Mon",
+      "tuesday": "Tue",
+      "wednesday": "Wed",
+      "thursday": "Thu",
+      "friday": "Fri",
+      "saturday": "Sat"
+    },
+    "weekdaysNarrow": {
+      "sunday": "S",
+      "monday": "M",
+      "tuesday": "T",
+      "wednesday": "W",
+      "thursday": "T",
+      "friday": "F",
+      "saturday": "S"
+    }
+  }
+}

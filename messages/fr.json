@@ -1,0 +1,209 @@
+{
+  "Home": {
+    "title": "Bonjour le monde!"
+  },
+  "BookUI": {
+    "tabs": {
+      "destination": "Destination",
+      "dates": "Dates",
+      "guests": "Personnes"
+    },
+    "search": "Rechercher",
+    "searching": "Recherche...",
+    "addDates": "Ajouter des dates",
+    "addGuests": "Ajouter des invités",
+    "guests": {
+      "adults": "adulte",
+      "adults_plural": "adultes",
+      "children": "enfant",
+      "children_plural": "enfants",
+      "babies": "bébé",
+      "babies_plural": "bébés",
+      "pets": "animal",
+      "pets_plural": "animaux"
+    },
+    "guestsPanel": {
+      "title": "Qui vient ?",
+      "adults": "Adultes",
+      "adultsAge": "13 ans et plus",
+      "children": "Enfants",
+      "childrenAge": "2–12 ans",
+      "babies": "Bébés",
+      "babiesAge": "Moins de 2 ans",
+      "pets": "Animaux",
+      "petsNote": "Animaux d'assistance bienvenus"
+    },
+    "datesPanel": {
+      "title": "Sélectionnez vos dates"
+    },
+    "destinations": {
+      "capeTown": "Le Cap, Afrique du Sud",
+      "capeTownSubtitle": "Destination balnéaire prisée",
+      "paris": "Paris, Île-de-France",
+      "parisSubtitle": "Célèbre pour des sites comme : Tour Eiffel",
+      "sandton": "Sandton, Afrique du Sud",
+      "sandtonSubtitle": "Pour un voyage à l'étranger",
+      "daressalaam": "Dar es Salam, Tanzanie",
+      "daressalaamSubtitle": "Une perle rare",
+      "johannesburg": "Johannesbourg, Afrique du Sud",
+      "johannesburgSubtitle": "Culture, gastronomie et affaires",
+      "cairo": "Le Caire, Égypte",
+      "cairoSubtitle": "Histoire millénaire au bord du Nil"
+    }
+  },
+  "TrendingPlaces": {
+    "title": "Lieux tendances",
+    "subtitle": "Destinations populaires pour votre prochain voyage",
+    "places": {
+      "bali": {
+        "name": "Bali, Indonésie",
+        "description": "Paradis tropical avec plages et temples",
+        "properties": "2 450 logements"
+      },
+      "tokyo": {
+        "name": "Tokyo, Japon",
+        "description": "Métropole moderne et culture traditionnelle",
+        "properties": "3 890 logements"
+      },
+      "santorini": {
+        "name": "Santorin, Grèce",
+        "description": "Îles des Cyclades aux maisons blanches",
+        "properties": "1 230 logements"
+      },
+      "dubai": {
+        "name": "Dubaï, EAU",
+        "description": "Luxe et architecture futuriste",
+        "properties": "2 780 logements"
+      },
+      "maldives": {
+        "name": "Maldives",
+        "description": "Villas sur pilotis et eaux cristallines",
+        "properties": "890 logements"
+      },
+      "paris": {
+        "name": "Paris, France",
+        "description": "Ville lumière et capitale romantique",
+        "properties": "4 560 logements"
+      }
+    }
+  },
+  "BecomePartner": {
+    "title": "Devenez partenaire Wanderlate",
+    "subtitle": "Confiez votre logement et générez des revenus",
+    "description": "Rejoignez des milliers de propriétaires qui font confiance à Wanderlate pour gérer leurs locations. Simple, sécurisé et rentable.",
+    "cta": "Placer mon logement",
+    "features": {
+      "commission": {
+        "title": "Commission compétitive",
+        "description": "Seulement 15% de commission sur chaque réservation"
+      },
+      "support": {
+        "title": "Support 24/7",
+        "description": "Une équipe dédiée disponible à tout moment"
+      },
+      "visibility": {
+        "title": "Visibilité mondiale",
+        "description": "Votre logement visible par des millions de voyageurs"
+      },
+      "payment": {
+        "title": "Paiements sécurisés",
+        "description": "Recevez vos paiements rapidement et en toute sécurité"
+      }
+    },
+    "stats": {
+      "partners": "15 000+",
+      "partnersLabel": "Propriétaires partenaires",
+      "countries": "120+",
+      "countriesLabel": "Pays couverts",
+      "revenue": "2,5M€",
+      "revenueLabel": "Revenus générés en moyenne"
+    }
+  },
+  "Footer": {
+    "tagline": "Voyagez autrement, réservez simplement",
+    "company": {
+      "title": "Entreprise",
+      "about": "À propos",
+      "careers": "Carrières",
+      "press": "Presse",
+      "blog": "Blog"
+    },
+    "support": {
+      "title": "Support",
+      "help": "Centre d'aide",
+      "safety": "Sécurité",
+      "terms": "Conditions",
+      "privacy": "Confidentialité"
+    },
+    "hosting": {
+      "title": "Hébergement",
+      "becomeHost": "Devenir hôte",
+      "resources": "Ressources",
+      "community": "Communauté",
+      "hostsProtection": "Protection hôtes"
+    },
+    "social": {
+      "title": "Suivez-nous"
+    },
+    "copyright": "© 2025 Wanderlate. Tous droits réservés.",
+    "madeWith": "Fait avec",
+    "by": "par Olivier RUBUZ"
+  },
+  "Calendar": {
+    "months": {
+      "january": "Janvier",
+      "february": "Février",
+      "march": "Mars",
+      "april": "Avril",
+      "may": "Mai",
+      "june": "Juin",
+      "july": "Juillet",
+      "august": "Août",
+      "september": "Septembre",
+      "october": "Octobre",
+      "november": "Novembre",
+      "december": "Décembre"
+    },
+    "monthsShort": {
+      "january": "Jan",
+      "february": "Fév",
+      "march": "Mar",
+      "april": "Avr",
+      "may": "Mai",
+      "june": "Juin",
+      "july": "Juil",
+      "august": "Aoû",
+      "september": "Sep",
+      "october": "Oct",
+      "november": "Nov",
+      "december": "Déc"
+    },
+    "weekdays": {
+      "sunday": "Dimanche",
+      "monday": "Lundi",
+      "tuesday": "Mardi",
+      "wednesday": "Mercredi",
+      "thursday": "Jeudi",
+      "friday": "Vendredi",
+      "saturday": "Samedi"
+    },
+    "weekdaysShort": {
+      "sunday": "Dim",
+      "monday": "Lun",
+      "tuesday": "Mar",
+      "wednesday": "Mer",
+      "thursday": "Jeu",
+      "friday": "Ven",
+      "saturday": "Sam"
+    },
+    "weekdaysNarrow": {
+      "sunday": "D",
+      "monday": "L",
+      "tuesday": "M",
+      "wednesday": "M",
+      "thursday": "J",
+      "friday": "V",
+      "saturday": "S"
+    }
+  }
+}
