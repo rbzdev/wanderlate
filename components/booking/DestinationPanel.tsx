@@ -28,7 +28,7 @@ export function DestinationPanel({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.2 }}
-      className="rounded-full border bg-card shadow-sm overflow-hidden max-w-xl "
+      className="rounded-2xl border bg-card shadow-sm overflow-hidden max-w-xl "
     >
       {/* Search bar integrated in panel header */}
       <div className="flex items-center gap-2 border-b bg-background px-4 py-3">
@@ -44,6 +44,7 @@ export function DestinationPanel({
           className="w-full py-2 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
         />
       </div>
+      
 
       {/* Suggestions list (always visible when panel is active) */}
       <AnimatePresence>
