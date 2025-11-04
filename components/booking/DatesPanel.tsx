@@ -25,7 +25,7 @@ export function DatesPanel({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.2 }}
-      className="rounded-2xl border bg-card p-4 shadow-sm max-w-fit mx-auto"
+      className="rounded-2xl border bg-card p-4 shadow-sm max-w-fit mx-auto scale-125 mt-20 md:mt-0 md:scale-100"
     >
       <div className="mb-3 flex items-center gap-2 text-sm text-muted-foreground">
         <Icon icon="lucide:calendar" className="size-4" />

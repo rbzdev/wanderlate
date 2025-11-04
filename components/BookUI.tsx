@@ -189,7 +189,7 @@ export function BookUI({
                 >
                     {isSearching ? (
                         <>
-                            <Spinner size={20} className="mr-2" />
+                            <Spinner size={20} className="md:mr-2" />
                             <span className="hidden md:block">{t("searching")}</span>
                         </>
                     ) : (
