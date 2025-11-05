@@ -2,6 +2,21 @@
   "Home": {
     "title": "Bonjour le monde!"
   },
+  "Header": {
+    "title": "Trouvez votre séjour parfait, partout.",
+    "description": "Comparez les prix, vérifiez la disponibilité en temps réel et réservez en toute sécurité avec des paiements Stripe.",
+    "ctaPrimary": "Commencer à explorer",
+    "ctaSecondary": "Profiter",
+    "search": {
+      "where": "Où",
+      "wherePlaceholder": "Partout",
+      "dates": "Dates",
+      "datesPlaceholder": "Toute semaine",
+      "guests": "Invités",
+      "guestsPlaceholder": "Ajouter",
+      "button": "Rechercher des séjours"
+    }
+  },
   "BookUI": {
     "tabs": {
       "destination": "Destination",
@@ -117,6 +132,45 @@
       "countriesLabel": "Pays couverts",
       "revenue": "2,5M€",
       "revenueLabel": "Revenus générés en moyenne"
+    }
+  },
+  "NearbyPlaces": {
+    "title": "Destinations près de chez vous",
+    "subtitle": "Découvrez des lieux incroyables à proximité",
+    "loading": "Recherche de destinations...",
+    "error": "Impossible de déterminer votre position",
+    "retry": "Réessayer",
+    "places": {
+      "paris": {
+        "name": "Paris, France",
+        "description": "Ville lumière et romantisme",
+        "distance": "à 0 km"
+      },
+      "lyon": {
+        "name": "Lyon, France",
+        "description": "Gastronomie et architecture",
+        "distance": "à 460 km"
+      },
+      "marseille": {
+        "name": "Marseille, France",
+        "description": "Port méditerranéen dynamique",
+        "distance": "à 770 km"
+      },
+      "nice": {
+        "name": "Nice, France",
+        "description": "Côte d'Azur et plages",
+        "distance": "à 930 km"
+      },
+      "barcelona": {
+        "name": "Barcelone, Espagne",
+        "description": "Architecture moderne et culture",
+        "distance": "à 1 030 km"
+      },
+      "rome": {
+        "name": "Rome, Italie",
+        "description": "Histoire antique et cuisine",
+        "distance": "à 1 410 km"
+      }
     }
   },
   "Footer": {

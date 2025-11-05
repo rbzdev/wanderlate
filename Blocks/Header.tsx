@@ -3,8 +3,11 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Icon } from "@iconify/react"
+import { useTranslations } from "next-intl"
 
 export default function HeroHeader() {
+    const t = useTranslations("Header")
+
     return (
         <section className="relative overflow-hidden">
 
@@ -18,7 +21,7 @@ export default function HeroHeader() {
                             transition={{ duration: 0.6, ease: "easeOut" }}
                             className="text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
                         >
-                            Trouvez votre séjour parfait, partout.
+                            {t("title")}
                         </motion.h1>
 
                         <motion.p
@@ -27,7 +30,7 @@ export default function HeroHeader() {
                             transition={{ duration: 0.6, delay: 0.05, ease: "easeOut" }}
                             className="text-pretty text-base text-muted-foreground sm:text-lg"
                         >
-                            Comparez les prix, vérifiez la disponibilité en temps réel et réservez en toute sécurité avec des paiements Stripe.
+                            {t("description")}
                         </motion.p>
 
                         <motion.div
@@ -37,10 +40,10 @@ export default function HeroHeader() {
                             className="flex items-center gap-3"
                         >
                             <Button size="lg" className="rounded-full">
-                                Commencer à explorer
+                                {t("ctaPrimary")}
                             </Button>
                             <Button size="lg" variant="outline" className="rounded-full" disabled>
-                                Profiter
+                                {t("ctaSecondary")}
                             </Button>
                         </motion.div>
                     </div>
@@ -57,29 +60,29 @@ export default function HeroHeader() {
                                 <div className="flex items-center gap-2 rounded-xl border bg-card px-3 py-3">
                                     <Icon icon="si:pin-duotone" className="size-5 text-primary" />
                                     <div className="min-w-0">
-                                        <div className="truncate text-xs text-muted-foreground">Où</div>
-                                        <div className="truncate text-sm font-medium text-muted-foreground">Partout</div>
+                                        <div className="truncate text-xs text-muted-foreground">{t("search.where")}</div>
+                                        <div className="truncate text-sm font-medium text-muted-foreground">{t("search.wherePlaceholder")}</div>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-2 rounded-xl border bg-card px-3 py-3">
                                     <Icon icon="solar:calendar-line-duotone" className="size-5 text-primary" />
                                     <div className="min-w-0">
-                                        <div className="truncate text-xs text-muted-foreground">Dates</div>
-                                        <div className="truncate text-sm font-medium text-muted-foreground">Toute semaine</div>
+                                        <div className="truncate text-xs text-muted-foreground">{t("search.dates")}</div>
+                                        <div className="truncate text-sm font-medium text-muted-foreground">{t("search.datesPlaceholder")}</div>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-2 rounded-xl border bg-card px-3 py-3">
                                     <Icon icon="ph:users-duotone" className="size-5 text-primary" />
                                     <div className="min-w-0">
-                                        <div className="truncate text-xs text-muted-foreground">Invités</div>
-                                        <div className="truncate text-sm font-medium text-muted-foreground">Ajouter</div>
+                                        <div className="truncate text-xs text-muted-foreground">{t("search.guests")}</div>
+                                        <div className="truncate text-sm font-medium text-muted-foreground">{t("search.guestsPlaceholder")}</div>
                                     </div>
                                 </div>
                             </div>
                             <div className="mt-4 flex justify-end">
                                 <Button className="rounded-full" disabled>
                                     <Icon icon="lucide:search" className="mr-2 size-4" />
-                                    Rechercher des séjours
+                                    {t("search.button")}
                                 </Button>
                             </div>
                         </div>

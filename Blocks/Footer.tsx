@@ -103,11 +103,14 @@ export default function Footer() {
             <p>{t("copyright")}</p>
           </div>
 
-          <div className="flex items-center gap-1 text-sm text-muted-foreground/50">
+          <Link 
+          href="https://api.whatsapp.com/send?text=Hello%20Olivier%20RUBUZ%20%20I%20want%20to%talk%20with%20you!"
+          target="_black"
+           className="flex items-center gap-1 text-sm text-muted-foreground/50">
             <span>{t("madeWith")}</span>
             <Icon icon="file-icons:brainfuck" className="size-4 text-red-500 fill-red-500 animate-pulse" />
             <span>{t("by")}</span>
-          </div>
+          </Link>
         </div>
       </div>
     </footer>

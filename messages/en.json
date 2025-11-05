@@ -2,6 +2,21 @@
   "Home": {
     "title": "Hello World!"
   },
+  "Header": {
+    "title": "Find your perfect stay, anywhere.",
+    "description": "Compare prices, check real-time availability and book securely with Stripe payments.",
+    "ctaPrimary": "Start exploring",
+    "ctaSecondary": "Enjoy",
+    "search": {
+      "where": "Where",
+      "wherePlaceholder": "Anywhere",
+      "dates": "Dates",
+      "datesPlaceholder": "Any week",
+      "guests": "Guests",
+      "guestsPlaceholder": "Add",
+      "button": "Search stays"
+    }
+  },
   "BookUI": {
     "tabs": {
       "destination": "Destination",
@@ -117,6 +132,45 @@
       "countriesLabel": "Countries covered",
       "revenue": "€2.5M",
       "revenueLabel": "Average revenue generated"
+    }
+  },
+  "NearbyPlaces": {
+    "title": "Destinations near you",
+    "subtitle": "Discover amazing places nearby",
+    "loading": "Finding destinations...",
+    "error": "Unable to determine your location",
+    "retry": "Try again",
+    "places": {
+      "paris": {
+        "name": "Paris, France",
+        "description": "City of lights and romance",
+        "distance": "0 km away"
+      },
+      "lyon": {
+        "name": "Lyon, France",
+        "description": "Gastronomy and architecture",
+        "distance": "460 km away"
+      },
+      "marseille": {
+        "name": "Marseille, France",
+        "description": "Dynamic Mediterranean port",
+        "distance": "770 km away"
+      },
+      "nice": {
+        "name": "Nice, France",
+        "description": "French Riviera and beaches",
+        "distance": "930 km away"
+      },
+      "barcelona": {
+        "name": "Barcelona, Spain",
+        "description": "Modern architecture and culture",
+        "distance": "1,030 km away"
+      },
+      "rome": {
+        "name": "Rome, Italy",
+        "description": "Ancient history and cuisine",
+        "distance": "1,410 km away"
+      }
     }
   },
   "Footer": {

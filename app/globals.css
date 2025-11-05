@@ -120,3 +120,13 @@
     @apply bg-background text-foreground font-sans;
   }
 }
+
+
+/* Scrollbar Styles */
+.scrollbar-none{
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  &::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+}
