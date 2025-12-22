@@ -68,7 +68,7 @@ export default function Navbar() {
                         <DropdownMenuContent align="end" className="w-56">
                             <DropdownMenuLabel>Compte</DropdownMenuLabel>
                             <DropdownMenuItem asChild>
-                                <Link href="#">Connexion</Link>
+                                <Link href="/login">Connexion</Link>
                             </DropdownMenuItem>
                             <DropdownMenuItem asChild>
                                 <Link href="#">Inscription</Link>

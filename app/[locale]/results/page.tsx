@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { searchDestinations } from '@/api/destinations'
+import { searchDestinations } from '@/app/api/destinations'
 import { Icon } from '@iconify/react'
 import Image from 'next/image'
 

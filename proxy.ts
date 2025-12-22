@@ -31,7 +31,7 @@ function startsWithAny(pathname: string, prefixes: string[]): boolean {
   return prefixes.some((p) => pathname === p || pathname.startsWith(p + '/'))
 }
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const { pathname, search } = req.nextUrl
 
   // Check if this is an API route
@@ -79,7 +79,7 @@ export async function middleware(req: NextRequest) {
   }
 
   // Pages protégées: rediriger vers login si NON authentifié
-  const protectedAreas = ['/dashboard', '/wishlist', '/account', '/orders', '/settings']
+  const protectedAreas = ['/dashboard', '/wishlist', '/account', '/orders', '/settings', 'account']
   if (startsWithAny(pathWithoutLocale, protectedAreas) && !authed) {
     const url = req.nextUrl.clone()
     url.pathname = `/${locale}/login`
