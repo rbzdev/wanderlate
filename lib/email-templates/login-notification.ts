@@ -56,7 +56,7 @@ export function generateLoginNotificationTemplate(params: LoginNotificationParam
       
       <!-- Header -->
       <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 32px;">
-        <img src="https://wanderlate-com.vercel.app/assets/logos/logo.default.jpg" alt="Wanderlate" style="height: 32px; width: 32px; object-fit: contain;" />
+        <img src="https://wanderlate-com.vercel.app/assets/logos/logo.default.jpg" alt="Wanderlate" style="height: 38px; width: 38px; object-fit: contain; background-color: #ffffff; border-radius: 50px; margin-right: 5px" />
 
         <h1 style="margin: 0; color: #000000; font-size: 14px; font-weight: 600; letter-spacing: -0.025em;">${content.title}</h1>
 

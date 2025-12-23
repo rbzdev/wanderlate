@@ -30,8 +30,34 @@ model User {
   loginProvider String   @default("email")
   isActive      Boolean  @default(true)
 
+  // Relations for Message
+  sentMessages     Message[] @relation("SentMessages")
+  receivedMessages Message[] @relation("ReceivedMessages")
+
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
 
   @@map("users")
+}
+
+model Message {
+  id         String   @id @default(uuid()) @map("_id")
+  senderId   String? // null for system messages
+  receiverId String
+  type       String   @default("user") // 'user' | 'admin' | 'system'
+  subject    String
+  content    String
+  status     String   @default("unread") // 'unread' | 'read' | 'archived'
+  isRead     Boolean  @default(false)
+  readAt     DateTime?
+
+  sender   User? @relation("SentMessages", fields: [senderId], references: [id], onDelete: SetNull)
+  receiver User  @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([receiverId, status])
+  @@index([receiverId, createdAt])
+  @@map("messages")
 }

@@ -11,9 +11,9 @@ const footerLinks = {
 }
 
 const socialLinks = [
-  { icon: "lucide:facebook", href: "#", label: "Facebook" },
-  { icon: "lucide:twitter", href: "#", label: "Twitter" },
-  { icon: "lucide:instagram", href: "#", label: "Instagram" },
+  { icon: "basil:facebook-solid", href: "#", label: "Facebook" },
+  { icon: "codicon:twitter", href: "#", label: "Twitter" },
+  { icon: "formkit:instagram", href: "#", label: "Instagram" },
 ]
 
 export default function Footer() {
@@ -27,19 +27,14 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2 mb-4 group">
-              {/* <div className="size-8 rounded-lg bg-primary flex items-center justify-center group-hover:scale-110 transition-transform"> */}
-                {/* <Icon icon="uim:layers-alt" className="size-5 text-white" /> */}
                 <Image
-                    src="/logo.ico"
+                    src="/assets/logos/logo.full.png"
                     alt="Wanderlate Logo"
-                    width={32}
-                    height={32}
-                    className="rounded-sm"
+                    width={100}
+                    height={100}
+                    className=" w-44 h-fit object-contain"
                 />
-              {/* </div> */}
-              <span className="text-xl font-bold bg-clip-text text-transparent bg-linear-to-r from-primary to-rose-500">
-                Wanderlate
-              </span>
+             
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs mb-4">
               {t("tagline")}
@@ -51,9 +46,9 @@ export default function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="size-9 rounded-full bg-muted hover:bg-primary hover:text-white flex items-center justify-center transition-colors"
+                  className="size-9 rounded-full bg-black hover:bg-primary flex items-center justify-center transition-colors"
                 >
-                  <Icon icon={social.icon} className="size-4" />
+                  <Icon icon={social.icon} className="size-4 text-white"  />
                 </Link>
               ))}
             </div>
