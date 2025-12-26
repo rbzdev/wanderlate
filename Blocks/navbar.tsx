@@ -27,7 +27,7 @@ export default function Navbar() {
                             alt="Wanderlate Logo"
                             className="rounded-sm w-40 h-20 object-contain"
                         />
-                        
+
                     </Link>
                 </motion.div>
 
@@ -40,13 +40,19 @@ export default function Navbar() {
                     transition={{ duration: 0.45, delay: 0.1, ease: "easeOut" }}
                     className="flex items-center gap-2 sm:gap-3"
                 >
-                    <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
-                        Ajouter une logement
-                    </Button>
+                    <Link
+                        href="/host/dashboard/listings/new"
+                    >
+                        <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
+                            Ajouter un logement
+                        </Button>
+                    </Link>
+
+
                     <Button variant="ghost" size="icon" aria-label="Langue et devise">
                         <Icon icon="lucide:globe" className="size-5" />
                     </Button>
-                    
+
                     <UserWidget />
                 </motion.div>
             </div>

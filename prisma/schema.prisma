@@ -37,6 +37,8 @@ model User {
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
 
+  listings         Listing[]
+
   @@map("users")
 }
 
@@ -60,4 +62,51 @@ model Message {
   @@index([receiverId, status])
   @@index([receiverId, createdAt])
   @@map("messages")
+}
+
+
+model Listing {
+  id          String   @id @default(uuid()) @map("_id")
+  hostId      String
+  title       String
+  propertyType String
+  description String
+
+  // Location
+  city        String
+  country     String
+  address     String?
+  postalCode  String?
+
+  // Capacity
+  maxGuests   Int
+  bedrooms    Int
+  beds        Int
+  bathrooms   Int
+  amenities   String[] // Array of amenity codes
+
+  // Photos
+  photos          String[] // Array of image URLs
+  mainPhotoIndex  Int      @default(0)
+
+  // Pricing
+  pricePerNight      Float
+  cleaningFee        Float    @default(0)
+  minNights          Int      @default(1)
+  maxNights          Int      @default(30)
+  cancellationPolicy String
+
+  // Status
+  status      String   @default("draft") // 'draft' | 'active' | 'inactive'
+  isPublished Boolean  @default(false)
+
+  host User @relation(fields: [hostId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([hostId])
+  @@index([city, country])
+  @@index([status, isPublished])
+  @@map("listings")
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Toaster } from "sonner";
 import "../globals.css";
 
 // Internationalisation helper
@@ -42,6 +43,7 @@ export default async function LocaleLayout({
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
+          <Toaster richColors />
         </NextIntlClientProvider>
 
       </body>

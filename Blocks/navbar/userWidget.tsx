@@ -143,7 +143,7 @@ export default function UserWidget() {
                             </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
-                            <Link href="#">
+                            <Link href="/signup">
                                 <Icon icon="mdi:account-plus" className="mr-2 size-4" />
                                 Inscription
                             </Link>

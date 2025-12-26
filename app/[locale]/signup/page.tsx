@@ -249,7 +249,7 @@ export default function SignupPage() {
                             )}
                             {/* Accept Terms Checkbox (toujours visible à la fin) */}
                             {currentStep === 3 && (
-                                <div className="flex items-center gap-2 mt-2 hidden">
+                                <div className=" items-center gap-2 mt-2 hidden">
                                     <input
                                         id="acceptTerms"
                                         type="checkbox"
