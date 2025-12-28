@@ -72,6 +72,8 @@ export function BookUI({
         defaultGuests ?? { adults: 2, children: 0, babies: 0, pets: 0 }
     )
 
+    const [isScrolled, setIsScrolled] = React.useState(false)
+
     function adjustGuest(key: keyof typeof guests, delta: number) {
         setGuests((g) => {
             const limits: Record<keyof typeof g, { min: number; max: number }> = {
@@ -130,10 +132,18 @@ export function BookUI({
         }
     }, [selected, setSelected])
 
+    React.useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 100)
+        }
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
     return (
-        <div ref={containerRef} className="mx-auto w-full max-w-5xl space-y-4 p-4 sticky top-0 z-20">
+        <div ref={containerRef} className={`mx-auto w-full max-w-5xl space-y-4 p-4 fixed top-5 z-50 transition-all duration-300 ${isScrolled ? 'max-w-3xl scale-95 -top-24' : ''}`}>
             {/* Footer summary (optional - can be removed if not needed) */}
-            <div className="mx-auto max-w-5xl text-center text-sm text-muted-foreground bg-white rounded-full px-2 border w-fit">
+            <div className={`mx-auto max-w-5xl text-center text-sm text-muted-foreground bg-white rounded-full px-2 border w-fit transition-all duration-300 ${isScrolled ? 'opacity-0 pointer-events-none' : ''}`}>
                 {destination ? destination : null} ● {dateRange?.from ? dateRange.from.toLocaleDateString(locale === "fr" ? "fr-FR" : "en-US", { month: "short", day: "numeric" }) : t("addDates")}
                 {dateRange?.to ? ` → ${dateRange.to.toLocaleDateString(locale === "fr" ? "fr-FR" : "en-US", { month: "short", day: "numeric" })}` : ""} ● {guestsSummary}
             </div>
