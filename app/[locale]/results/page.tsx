@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Suspense } from 'react'
-import { searchDestinations } from '@/app/api/destinations'
 import { Icon } from '@iconify/react'
 import Image from 'next/image'
 
@@ -7,6 +7,8 @@ import Image from 'next/image'
 import Navbar from '@/Blocks/navbar'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { Listing } from '@/lib/types/listing'
+import { prisma } from '@/prisma/prisma'
 
 interface SearchParams {
     destination?: string
@@ -20,21 +22,62 @@ interface SearchParams {
     maxPrice?: string
 }
 
+async function searchListings(searchParams: SearchParams): Promise<Listing[]> {
+    console.log('searchListings called with:', searchParams)
+
+    const where: any = {
+        // Only show active and published listings
+        status: 'active',
+        isPublished: true,
+    };
+
+    // Destination search (search in city, country, address, title, description)
+    if (searchParams.destination) {
+        where.OR = [
+            { city: { contains: searchParams.destination, mode: 'insensitive' } },
+            { country: { contains: searchParams.destination, mode: 'insensitive' } },
+            { address: { contains: searchParams.destination, mode: 'insensitive' } },
+            { title: { contains: searchParams.destination, mode: 'insensitive' } },
+            { description: { contains: searchParams.destination, mode: 'insensitive' } },
+        ];
+    }
+
+    // Guests filter - ensure listing can accommodate the number of guests
+    const totalGuests = Number(searchParams.adults || 0) + Number(searchParams.children || 0) + Number(searchParams.babies || 0)
+    if (totalGuests > 0) {
+        where.maxGuests = { gte: totalGuests };
+    }
+
+    console.log('Prisma where clause:', where)
+
+    const listings = await prisma.listing.findMany({
+        where,
+        include: {
+            host: {
+                select: {
+                    id: true,
+                    firstname: true,
+                    lastName: true,
+                },
+            },
+        },
+        orderBy: {
+            createdAt: 'desc',
+        },
+    });
+
+    console.log(`Found ${listings.length} listings`)
+    return listings
+}
+
 async function ResultsContent({ searchParams }: { searchParams: SearchParams }) {
     const checkInDate = searchParams.checkIn ? new Date(searchParams.checkIn) : undefined
     const checkOutDate = searchParams.checkOut ? new Date(searchParams.checkOut) : undefined
-    const totalGuests = Number(searchParams.adults || 0) + Number(searchParams.children || 0)
+    const totalGuests = Number(searchParams.adults || 0) + Number(searchParams.children || 0) + Number(searchParams.babies || 0)
 
-    const results = await searchDestinations({
-        destination: searchParams.destination || '',
-        checkIn: checkInDate,
-        checkOut: checkOutDate,
-        guests: totalGuests,
-        type: searchParams.type ? [searchParams.type as 'hotel' | 'villa' | 'resort' | 'apartment'] : undefined,
-        maxPrice: searchParams.maxPrice ? Number(searchParams.maxPrice) : undefined
-    })
+    const listings = await searchListings(searchParams)
 
-    if (results.length === 0) {
+    if (listings.length === 0) {
         return (
             <div className="flex flex-col items-center justify-center py-20 text-center">
                 <Icon icon="mynaui:search" width="64" height="64" className="text-gray-300 mb-4" />
@@ -56,7 +99,7 @@ async function ResultsContent({ searchParams }: { searchParams: SearchParams }) 
 
             <div className="mb-6">
                 <h1 className="text-3xl font-bold mb-2">
-                    {results.length} {results.length === 1 ? 'résultat trouvé' : 'résultats trouvés'}
+                    {listings.length} {listings.length === 1 ? 'résultat trouvé' : 'résultats trouvés'}
                 </h1>
                 <p className="text-gray-600">
                     {searchParams.destination && `Destination: ${searchParams.destination}`}
@@ -66,68 +109,58 @@ async function ResultsContent({ searchParams }: { searchParams: SearchParams }) 
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {results.map((destination) => (
+                {listings.map((listing) => (
                     <div
-                        key={destination.id}
+                        key={listing.id}
                         className="group cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition-all duration-300"
                     >
                         {/* Image */}
                         <div className="relative h-64 overflow-hidden">
                             <Image
-                                src={destination.images[0]}
-                                alt={destination.name}
+                                src={listing.photos[listing.mainPhotoIndex] || listing.photos[0] || '/placeholder.jpg'}
+                                alt={listing.title}
                                 fill
                                 className="object-cover group-hover:scale-110 transition-transform duration-300"
                             />
-                            {!destination.available && (
-                                <div className="absolute top-3 right-3">
-                                    <Badge variant="destructive">Complet</Badge>
-                                </div>
-                            )}
-                            {destination.starRating && (
-                                <div className="absolute top-3 left-3 bg-white/90 px-2 py-1 rounded-full flex items-center gap-1">
-                                    <Icon icon="mynaui:star-solid" width="16" height="16" className="text-yellow-500" />
-                                    <span className="text-sm font-semibold">{destination.starRating}</span>
-                                </div>
-                            )}
+                            <div className="absolute top-3 right-3">
+                                <Badge variant="outline">{listing.propertyType}</Badge>
+                            </div>
                         </div>
 
                         {/* Content */}
                         <div className="p-4">
-                            <div className="mb-2">
-                                <Badge variant="outline" className="mb-2">
-                                    {destination.type === 'hotel' && 'Hôtel'}
-                                    {destination.type === 'villa' && 'Villa'}
-                                    {destination.type === 'resort' && 'Resort'}
-                                    {destination.type === 'apartment' && 'Appartement'}
-                                </Badge>
-                            </div>
-
                             <h3 className="text-xl font-semibold mb-1 group-hover:text-blue-600 transition-colors">
-                                {destination.name}
+                                {listing.title}
                             </h3>
 
                             <div className="flex items-center text-gray-600 mb-3">
                                 <Icon icon="mynaui:location" width="16" height="16" className="mr-1" />
                                 <span className="text-sm">
-                                    {destination.location.city}, {destination.location.country}
+                                    {listing.city}, {listing.country}
                                 </span>
                             </div>
 
                             <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-                                {destination.description}
+                                {listing.description}
                             </p>
+
+                            {/* Capacity */}
+                            <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
+                                <span>{listing.maxGuests} voyageurs</span>
+                                <span>{listing.bedrooms} ch.</span>
+                                <span>{listing.bathrooms} sdb</span>
+                            </div>
 
                             {/* Amenities */}
                             <div className="flex flex-wrap gap-2 mb-3">
-                                {destination.amenities.slice(0, 3).map((amenity) => (
+                                {listing.amenities.slice(0, 3).map((amenity) => (
                                     <span key={amenity} className="text-xs bg-gray-100 px-2 py-1 rounded-full">
                                         {amenity}
                                     </span>
                                 ))}
-                                {destination.amenities.length > 3 && (
+                                {listing.amenities.length > 3 && (
                                     <span className="text-xs text-gray-500">
-                                        +{destination.amenities.length - 3} plus
+                                        +{listing.amenities.length - 3} plus
                                     </span>
                                 )}
                             </div>
@@ -136,12 +169,12 @@ async function ResultsContent({ searchParams }: { searchParams: SearchParams }) 
                             <div className="flex items-center justify-between pt-3 border-t border-gray-100">
                                 <div>
                                     <span className="text-2xl font-bold text-blue-600">
-                                        {destination.pricePerNight.amount.toLocaleString('fr-FR')} €
+                                        {listing.pricePerNight.toLocaleString('fr-FR')} €
                                     </span>
                                     <span className="text-sm text-gray-600"> / nuit</span>
                                 </div>
-                                <Button size="sm" disabled={!destination.available}>
-                                    {destination.available ? 'Réserver' : 'Complet'}
+                                <Button size="sm">
+                                    Réserver
                                 </Button>
                             </div>
                         </div>
@@ -155,8 +188,21 @@ async function ResultsContent({ searchParams }: { searchParams: SearchParams }) 
 export default function ResultsPage({
     searchParams
 }: {
-    searchParams: SearchParams
+    searchParams: { [key: string]: string | string[] | undefined }
 }) {
+    // Convert Next.js searchParams to our SearchParams interface
+    const params: SearchParams = {
+        destination: typeof searchParams.destination === 'string' ? searchParams.destination : undefined,
+        checkIn: typeof searchParams.checkIn === 'string' ? searchParams.checkIn : undefined,
+        checkOut: typeof searchParams.checkOut === 'string' ? searchParams.checkOut : undefined,
+        adults: typeof searchParams.adults === 'string' ? searchParams.adults : undefined,
+        children: typeof searchParams.children === 'string' ? searchParams.children : undefined,
+        babies: typeof searchParams.babies === 'string' ? searchParams.babies : undefined,
+        pets: typeof searchParams.pets === 'string' ? searchParams.pets : undefined,
+        type: typeof searchParams.type === 'string' ? searchParams.type : undefined,
+        maxPrice: typeof searchParams.maxPrice === 'string' ? searchParams.maxPrice : undefined,
+    }
+
     return (
         <>
             <Navbar />
@@ -170,7 +216,7 @@ export default function ResultsPage({
                         </div>
                     }
                 >
-                    <ResultsContent searchParams={searchParams} />
+                    <ResultsContent searchParams={params} />
                 </Suspense>
             </div>
         </>

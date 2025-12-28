@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 // Components
 import Navbar from '@/Blocks/navbar';
 import { Listing } from '@/lib/types/listing';
-import SearchBar from './components/SearchBar';
+import { BookUI } from '@/components/BookUI';
 import PropertyTypesFilter from './components/PropertyTypesFilter';
 import FiltersBar from './components/FiltersBar';
 import ListingsGrid from './components/ListingsGrid';
@@ -85,7 +85,9 @@ export default function ExplorePage() {
     return (
         <div className="min-h-screen bg-white dark:bg-zinc-950">
             <Navbar />
-            <SearchBar />
+            <div className="bg-primary">
+                <BookUI />
+            </div>
             <PropertyTypesFilter selectedType={selectedType} setSelectedType={setSelectedType} />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
                 <FiltersBar

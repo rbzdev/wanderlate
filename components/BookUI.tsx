@@ -63,7 +63,7 @@ export function BookUI({
 
     // Uncontrolled values (can be lifted and controlled with a custom wrapper if needed)
     const [dateRange, setDateRange] = React.useState<DateRange | undefined>(
-        defaultDateRange ?? { from: new Date(2025, 5, 12), to: new Date(2025, 6, 15) }
+        defaultDateRange
     )
 
     const [destination, setDestination] = React.useState(defaultDestination)
